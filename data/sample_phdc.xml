@@ -40,7 +40,7 @@
           <family>Schmidt</family>
         </name>
         <administrativeGenderCode displayName="Male"/>
-        <birthTime value="20000101"></birthTime>
+        <birthTime value="01012000"/>
         <sdt:raceCode code="2106-3" codeSystem="2.16.840.1.113883.6.238" displayName="White" codeSystemName="Race &amp; Ethnicity"/>
         <ethnicGroupCode code="2186-5" codeSystem="2.16.840.1.113883.6.238" displayName="Not Hispanic or Latino" codeSystemName="Race &amp; Ethnicity"/>
       </patient>
@@ -50,9 +50,11 @@
     <time value="20101215000000"/>
     <assignedAuthor>
       <id root="2.16.840.1.113883.19.5"/>
-      <name>
-        <family>DIBBS</family>
-      </name>
+      <assignedPerson>
+        <name>
+          <family>CDC PRIME DIBBs</family>
+        </name>
+      </assignedPerson>
     </assignedAuthor>
   </author>
   <custodian>
@@ -60,6 +62,7 @@
       <representedCustodianOrganization>
         <id extension="112233"/>
         <name>Happy Labs</name>
+        <telecom value="8888675309"/>
         <addr>
           <streetAddressLine>23 main st</streetAddressLine>
           <streetAddressLine>apt 12</streetAddressLine>
@@ -69,7 +72,6 @@
           <county>Tarrant</county>
           <country>USA</country>
         </addr>
-        <telecom value="8888675309"/>
       </representedCustodianOrganization>
     </assignedCustodian>
   </custodian>
@@ -83,15 +85,13 @@
           <entry typeCode="COMP">
             <observation classCode="OBS" moodCode="EVN">
               <code code="DEM127" codeSystem="2.16.840.1.114222.4.5.232" codeSystemName="PHIN Questions" displayName="Is this person deceased?"/>
-              <value xsi:type="CE" code="N" codeSystem="2.16.840.1.113883.12.136" codeSystemName="Yes/No Indicator (HL7)" displayName="No">
-                <translation code="N" codeSystem="2.16.840.1.113883.12.136" codeSystemName="2.16.840.1.113883.12.136" displayName="No"/>
-              </value>
+              <value xsi:type="CE" code="N" codeSystem="2.16.840.1.113883.12.136" codeSystemName="Yes/No Indicator (HL7)" displayName="No"/>
             </observation>
           </entry>
           <entry typeCode="COMP">
             <observation classCode="OBS" moodCode="EVN">
               <code code="NBS104" codeSystem="2.16.840.1.114222.4.5.1" codeSystemName="NEDSS Base System" displayName="Information As of Date"/>
-              <value xsi:type="TS">20240124</value>
+              <value xsi:type="TS" value="20240124"/>
             </observation>
           </entry>
         </section>
@@ -104,18 +104,60 @@
           <entry typeCode="COMP">
             <observation classCode="OBS" moodCode="EVN">
               <code code="INV169" codeSystem="2.16.840.1.114222.4.5.1" displayName="Condition"/>
-              <value xsi:type="CE" code="10274" codeSystem="1.2.3.5" displayName="Chlamydia trachomatis infection">
-                <translation xsi:type="CE" code="350" codeSystem="L" codeSystemName="STD*MIS" displayName="Local Label"/>
-              </value>
+              <value xsi:type="CE" code="10274" codeSystem="1.2.3.5" displayName="Chlamydia trachomatis infection"/>
             </observation>
           </entry>
           <entry typeCode="COMP">
             <observation classCode="OBS" moodCode="EVN">
               <code code="NBS012" codeSystem="2.16.840.1.114222.4.5.1" displayName="Shared Ind"/>
-              <value xsi:type="CE" code="F" codeSystem="1.2.3.5" displayName="False">
-                <translation xsi:type="CE" code="T" codeSystem="L" codeSystemName="STD*MIS" displayName="Local Label"/>
-              </value>
+              <value xsi:type="CE" code="F" codeSystem="1.2.3.5" displayName="False"/>
             </observation>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <code code="1234567-RPT" codeSystem="Local-codesystem-oid" codeSystemName="LocalSystem" displayName="Generic Repeating Questions Section"/>
+          <title>REPEATING QUESTIONS</title>
+          <entry typeCode="COMP">
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <code code="1" displayName="Exposure Information" codeSystemName="LocalSystem"/>
+              <statusCode code="completed"/>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="INV502" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Country of Exposure"/>
+                  <value xsi:type="CE" code="ATA" codeSystem="1.0.3166.1" codeSystemName="Country (ISO 3166-1)" displayName="ANTARCTICA"/>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="COMP">
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <code code="1" displayName="Exposure Information" codeSystemName="LocalSystem"/>
+              <statusCode code="completed"/>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="INV504" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="City of Exposure"/>
+                  <value>Esperanze</value>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="COMP">
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <code code="1" displayName="Exposure Information" codeSystemName="LocalSystem"/>
+              <statusCode code="completed"/>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                <code code="DEM127" codeSystem="List Item 1" codeSystemName="PHIN Questions" displayName="Is this person deceased?"/>
+                  <value xsi:type="CE" code="N" codeSystem="2.16.840.1.113883.12.136" codeSystemName="List Item 1" displayName="List Item 1"/>
+                </observation>
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="NBS104" codeSystem="2.16.840.1.114222.4.5.1" codeSystemName="NEDSS Base System" displayName="List Item 2"/>
+                  <value xsi:type="TS" value="List Item 2"/>
+                </observation>
+              </component>
+            </organizer>
           </entry>
         </section>
       </component>
